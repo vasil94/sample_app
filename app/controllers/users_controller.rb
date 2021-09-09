@@ -28,11 +28,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
       redirect_to @user
@@ -49,8 +47,9 @@ class UsersController < ApplicationController
   
   private
 
-    def user_params 
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    def user_params
+      params.require(:user).permit(:name, :email, :password,
+                                  :password_confirmation)
     end
 
     def logged_in_user
@@ -65,7 +64,7 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
-    end 
+    end
 
     # Подтверждает администратора.
     def admin_user
