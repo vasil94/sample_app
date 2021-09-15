@@ -16,14 +16,14 @@ archer:
   activated_at: <%= Time.zone.now %>
   
 
-archer:
+archr:
   name: Jovany Murray
   email: jovany@example.com
   password_digest: <%= User.digest('password') %>
   activated: true
   activated_at: <%= Time.zone.now %>
 
-archer:
+martine:
   name: Martine Renner
   email: martine@example.com
   password_digest: <%= User.digest('password') %>
